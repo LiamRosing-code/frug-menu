@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>פרוג ושות' · התפריט</title>
+<meta name="description" content="התפריט של פרוג ושות' — בר שכונתי ברמת גן. ראשונות, סלטים, פיצות מתנור אבן, כריכים, קינוחים, קוקטיילים, בירות ויין.">
+<meta name="theme-color" content="#131110">
+<meta property="og:title" content="פרוג ושות' · התפריט">
+<meta property="og:description" content="בר שכונתי ברמת גן · ארלוזורוב 29">
+<meta property="og:image" content="assets/media/share.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/media/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Karantina:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // ערכת צבעים: ברירת מחדל כהה. ?theme=light / ?theme=dark בכתובת, או הכפתור בפינה.
+  (function () {
+    var t = null;
+    try {
+      t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("frug-theme");
+    } catch (e) {}
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#menu">דילוג לתפריט</a>
+
+<div class="page">
+  <header class="hero">
+    <img class="hero__media" src="assets/media/hero.jpg" width="900" height="1200" alt="" fetchpriority="high">
+    <button class="theme-toggle" type="button" aria-label="החלפת ערכת צבעים">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.2A8 8 0 0 1 9.8 4a8 8 0 1 0 10.2 10.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="hero__content">
+      <img class="hero__logo" src="assets/brand/logo-white.png" width="720" height="720" alt="פרוג ושות'">
+      <h1 class="hero__tag" id="venue-tagline">בר שכונתי ברמת גן</h1>
+      <a class="hero__addr" id="venue-address" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.400-6.500 11-6.500 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>ארלוזורוב 29, רמת גן</span>
+      </a>
+    </div>
+  </header>
+
+  <aside class="notices" id="notices" aria-label="מבצעים" hidden></aside>
+
+  <nav class="tabs" aria-label="קטגוריות התפריט">
+    <div class="tabs__scroll" id="tabs"></div>
+  </nav>
+
+  <main id="menu" tabindex="-1">
+    <noscript><p class="noscript">כדי לצפות בתפריט יש להפעיל JavaScript בדפדפן.</p></noscript>
+  </main>
+
+  <section class="vibe" id="vibe" aria-labelledby="vibe-title" hidden>
+    <h2 class="vibe__title" id="vibe-title">האווירה</h2>
+    <div class="vibe__strip" id="vibe-strip"></div>
+  </section>
+
+  <footer class="foot">
+    <img class="foot__logo" src="assets/brand/logo-white.png" width="720" height="720" alt="" loading="lazy" data-logo>
+    <p class="foot__addr" id="foot-address"></p>
+    <div class="foot__links" id="foot-links"></div>
+    <p class="foot__fine" id="foot-fine"></p>
+  </footer>
+</div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <button class="sheet__close" type="button" aria-label="סגירה">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <div class="sheet__media" id="sheet-media"></div>
+  <div class="sheet__body">
+    <h2 class="sheet__title" id="sheet-title"></h2>
+    <p class="sheet__desc" id="sheet-desc"></p>
+    <p class="sheet__note" id="sheet-note"></p>
+    <div class="sheet__meta" id="sheet-meta"></div>
+  </div>
+</dialog>
+
+<script src="menu-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
